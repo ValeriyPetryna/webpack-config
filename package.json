@@ -5,9 +5,11 @@
   "private": true,
   "main": "index.js",
   "scripts": {
+    "dev": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
-    "serve": "webpack-dev-server --open"
+    "build": "webpack --mode=production",
+    "serve": "webpack-dev-server --open",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",

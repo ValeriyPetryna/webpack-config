@@ -4,7 +4,9 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: {
-        profile: './src/app/profile.js'
+        personal: './src/app/personal.js',
+        messenger: './src/app/messenger.js',
+        account : './src/app/account.js',
     },
     output: {
         filename: "bundles/[name].js",
@@ -65,12 +67,19 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({ 
-            filename: 'index.html',
-            template: './src/index.html' 
+            filename: 'account.html',
+            chunks: ['account'],
+            template: './src/templates/profile/account.pug' 
+        }),
+        new HtmlWebpackPlugin({ 
+            filename: 'personal.html',
+            chunks: ['personal'],
+            template: './src/templates/profile/personal.pug' 
         }),
         new HtmlWebpackPlugin({
-            filename: 'another.html',
-            template: './src/templates/messanger/index.pug'
+            filename: 'messenger.html',
+            chunks: ['messenger'],
+            template: './src/templates/messenger/index.pug'
         }),
         new CopyWebpackPlugin([{
             from: './src/images',
